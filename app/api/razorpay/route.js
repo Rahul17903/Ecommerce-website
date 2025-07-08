@@ -18,6 +18,7 @@ export const POST = async (req) => {
 
     // fetch the secret of the user who is getting the payment 
     let user = await User.findOne({username: p.to_user})
+    
     const secret = user.razorpaysecret
 
     // Verify the payment
@@ -30,6 +31,7 @@ export const POST = async (req) => {
     }
 
     else{
+        console.log("ei tar jonno hocche naa")
         return NextResponse.json({success: false, message:"Payment Verification Failed"})
     }
 

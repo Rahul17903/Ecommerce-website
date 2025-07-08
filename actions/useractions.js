@@ -13,7 +13,7 @@ export const initiate = async (amount, to_username, paymentform) => {
     const secret = user.razorpaysecret
 
 
-    var instance = new Razorpay({ key_id: process.env.NEXT_PUBLIC_KEY_ID, key_secret: process.env.KEY_SECRET })
+    var instance = new Razorpay({ key_id: user.razorpayid, key_secret: secret })
 
 
 

@@ -52,14 +52,14 @@ const PaymentPage = ({ username }) => {
         let dbpayments = await fetchpayments(username)
         setPayments(dbpayments) 
     }
-
+ 
 
     const pay = async (amount) => {
         // Get the order Id 
         let a = await initiate(amount, username, paymentform)
         let orderId = a.id
         var options = {
-            "key": process.env.NEXT_PUBLIC_KEY_ID, // Enter the Key ID generated from the Dashboard
+            "key": currentUser.razorpayid, // Enter the Key ID generated from the Dashboard
             "amount": amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
             "currency": "INR",
             "name": "E commerce Website", //your business name
